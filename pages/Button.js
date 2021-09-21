@@ -1,5 +1,6 @@
 import React from "react";
 import Button from "@material-ui/core/Button";
+import { CircularProgress } from "@material-ui/core";
 
 export default function ButtonComponent({
   muiColor,
@@ -9,6 +10,7 @@ export default function ButtonComponent({
   fullWidth,
   size,
   onSubmit,
+  loaderSize,
 }) {
   const onClick = () => {
     return;
@@ -23,7 +25,9 @@ export default function ButtonComponent({
       size={size || "medium"}
       onClick={onSubmit || onClick}
     >
-      {name || "Submit"}
+      {name || (
+        <CircularProgress color="success" size={loaderSize || "1.5rem"} />
+      )}
     </Button>
   );
 }
